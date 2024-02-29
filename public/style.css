@@ -1,0 +1,25 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    display:grid;
+    place-content: center;
+}
+
+.flavorCard {
+    display:flex;
+    justify-content:space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+    max-width: 600px;
+}
+
+.out-of-stock {
+    max-width: 368px;
+}
+
+.in-stock {
+    max-width: 368px;
+}
