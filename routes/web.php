@@ -15,8 +15,8 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', [HomeController::class, 'homeLoader'])->middleware('auth')->name('home');
-
+Route::get('/dashboard', [HomeController::class, 'homeLoader'])->middleware('auth')->name('dashboard');
+Route::get('/', [HomeController::class, 'homePage'])->name('main');
 Route::post('/login', [LoginController::class, 'loginUser'])->name('loginAction');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/add/flavor',[FlavorController::class, 'store'])->middleware('auth');

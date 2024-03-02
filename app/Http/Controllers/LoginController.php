@@ -21,7 +21,7 @@ class LoginController extends Controller
 
         if (auth()->attempt($credentials)) {
             // Authentication passed...
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         } else {
             return redirect()->back()->withInput()->withErrors(['email' => 'Invalid username or password.']);
         }
@@ -29,7 +29,7 @@ class LoginController extends Controller
 
     public function logout() {
         auth()->logout();
-        return redirect()->route('login');
+        return redirect()->route('main');
 
     }
 }

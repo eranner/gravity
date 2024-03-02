@@ -26,7 +26,7 @@ class FlavorController extends Controller
         ]);
 
         // Redirect to the homepage with a success message
-        return redirect('/')->with('success', 'Flavor added successfully!');
+        return redirect()->route('dashboard')->with('success', 'Flavor added successfully!');
     }
 
     public function updateStock($id)
@@ -40,7 +40,7 @@ class FlavorController extends Controller
         $flavor->save();
         }
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
 }
 
 public function refreshStock($id) {
@@ -50,7 +50,7 @@ public function refreshStock($id) {
         $flavor->save();
     }
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     
 }
 }
