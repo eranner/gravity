@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Topping extends Model
+class Shake extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'topping',
+        'shake',
         'in_stock',
     ];
 }

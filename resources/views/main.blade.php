@@ -4,7 +4,6 @@
 <div class="container">
     <div class="welcomsign"></div>
     <div class="frontFacingMenu">
-        <h4 class="gravityMenu">Today's Menu</h4>
         <div class="iceCreamFlavors">
             <h6 class="categoryLabel">Hard Ice Creams</h6>
             @foreach($flavors as $flavor)
@@ -21,9 +20,30 @@
             @endif
             @endforeach
         </div>
-        <div class="softserve"></div>
-        <div class="shakes"></div>
-        <div class="specials"></div>
+        <div class="softserve">
+            <h6 class="categoryLabel">Soft Serve</h6>
+            @foreach ($softServes as $softServe)
+            @if ($softServe->in_stock)
+            <div class="flavorName">{{$softServe->flavor}}</div>
+            @endif
+            @endforeach
+        </div>
+        <div class="shakes">
+            <h6 class="categoryLabel">Shakes</h6>
+            @foreach ($shakes as $shake)
+            @if ($shake->in_stock)
+            <div class="flavorName">{{$shake->shake}}</div>
+            @endif
+            @endforeach
+        </div>
+        <div class="specials">
+            <h6 class="categoryLabel">Specials</h6>
+            @foreach ($specials as $special)
+            @if ($special->in_stock)
+            <div class="flavorName">{{$special->special}}</div>
+            @endif
+            @endforeach
+        </div>
     </div>
 </div>
 

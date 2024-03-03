@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Topping extends Model
+class Softserve extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'topping',
+        'flavor',
         'in_stock',
     ];
 }

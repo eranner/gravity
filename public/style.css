@@ -20,10 +20,31 @@ body, html {
 
 }
 
+.inventory-holders {
+    display:flex;
+    flex-wrap: wrap;
+}
+
 .out-of-stock {
     max-width: 368px;
 }
 
 .in-stock {
     max-width: 368px;
+}
+
+.frontFacingMenu {
+    display: grid;
+    grid-template-rows: .5fr 1.5fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+.menu {
+    display:flex;
+    flex-direction: column;
+}
+
+.main-flavor-add {
+    display:flex;
+    flex-direction: column;
 }
