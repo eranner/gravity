@@ -23,6 +23,9 @@ body, html {
 .inventory-holders {
     display:flex;
     flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    
 }
 
 .out-of-stock {
@@ -47,4 +50,15 @@ body, html {
 .main-flavor-add {
     display:flex;
     flex-direction: column;
+    max-width: 350px;
+    border: 2px solid black;
+    padding: 5px;
+
+}
+.addFlavorContainer {
+    max-width: 350px;
+}
+
+.addFlavorContainer>h5 {
+    text-align: center;
 }

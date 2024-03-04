@@ -4,7 +4,7 @@
 <form action="/add/softServe" method="post">
     @csrf
     <label for="flavor">Soft Serve:</label>
-    <input type="text" name="flavor" required>
+    <input type="text" name="flavor">
     
     <label for="in_stock">In Stock:</label>
     <input type="checkbox" name="in_stock" value="1" checked>

@@ -4,7 +4,7 @@
 <form action="/add/shake" method="post">
     @csrf
     <label for="shake">Shake:</label>
-    <input type="text" name="shake" required>
+    <input type="text" name="shake">
     
     <label for="in_stock">In Stock:</label>
     <input type="checkbox" name="in_stock" value="1" checked>
@@ -31,7 +31,7 @@
 </div>
 <div class="out-of-stock">
     <h3>Out of Stock:</h3>
-    <p>Click on flavor to add back into the "In Stock Flavors"</p>
+    <p>Click on flavor to add back into the "In Stock Shakes"</p>
     <p style="color:red;">
     @foreach ($shakes as $shake)
     @if (!$shake->in_stock)

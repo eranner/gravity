@@ -24,6 +24,8 @@ Route::get('/', [HomeController::class, 'homePage'])->name('main');
 Route::post('/login', [LoginController::class, 'loginUser'])->name('loginAction');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/add/flavor',[FlavorController::class, 'store'])->middleware('auth');
+
+
 Route::post('/add/topping', [ToppingController::class, 'store'])->middleware('auth');
 Route::put('/updateStock/topping/{id}', [ToppingController::class, 'updateStock'])->middleware('auth')->name('updateTopping');
 Route::put('/refreshStock/topping/{id}', [ToppingController::class, 'refreshStock'])->middleware('auth')->name('refreshTopping');

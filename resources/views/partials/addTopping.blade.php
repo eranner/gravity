@@ -4,12 +4,12 @@
 <form action="/add/topping" method="post">
     @csrf
     <label for="topping">Topping:</label>
-    <input type="text" name="topping" required>
+    <input type="text" name="topping">
     
     <label for="in_stock">In Stock:</label>
     <input type="checkbox" name="in_stock" value="1" checked>
     
-    <button type="submit">Add Topping</button>
+    <button class="btn btn-success" type="submit">Add Topping</button>
 </form>
 </div>
 <div class="menu">
@@ -31,7 +31,7 @@
 </div>
 <div class="out-of-stock">
     <h3>Out of Stock:</h3>
-    <p>Click on flavor to add back into the "In Stock Flavors"</p>
+    <p>Click on flavor to add back into the "In Stock Toppings"</p>
     <p style="color:red;">
     @foreach ($toppings as $topping)
     @if (!$topping->in_stock)

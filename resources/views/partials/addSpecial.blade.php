@@ -4,7 +4,7 @@
 <form action="/add/special" method="post">
     @csrf
     <label for="special">Special:</label>
-    <input type="text" name="special" required>
+    <input type="text" name="special">
     
     <label for="in_stock">In Stock:</label>
     <input type="checkbox" name="in_stock" value="1" checked>
