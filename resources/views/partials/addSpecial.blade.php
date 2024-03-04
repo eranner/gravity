@@ -3,13 +3,22 @@
         <h5>Add New Special To The Inventory Database</h5>
 <form action="/add/special" method="post">
     @csrf
-    <label for="special">Special:</label>
-    <input type="text" name="special">
+    <div class="formInputs">
+        <div>
+            <label for="special">Special:</label>
+            <input type="text" name="special">
+        </div>
+        <div>
+            <label for="in_stock">In Stock:</label>
+            <input type="checkbox" name="in_stock" value="1" checked>
+        </div>
+        <button class="btn btn-success" type="submit">Add Special</button>
+
+    </div>
+
     
-    <label for="in_stock">In Stock:</label>
-    <input type="checkbox" name="in_stock" value="1" checked>
     
-    <button type="submit">Add Special</button>
+    
 </form>
 </div>
 <div class="menu">

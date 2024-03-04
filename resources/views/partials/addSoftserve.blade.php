@@ -3,13 +3,21 @@
         <h5>Add New Soft Serve To The Inventory Database</h5>
 <form action="/add/softServe" method="post">
     @csrf
-    <label for="flavor">Soft Serve:</label>
-    <input type="text" name="flavor">
+    <div class="formInputs">
+        <div>
+            <label for="flavor">Soft Serve:</label>
+            <input type="text" name="flavor">
+        </div>
+        <div>
+            <label for="in_stock">In Stock:</label>
+            <input type="checkbox" name="in_stock" value="1" checked>    
+        </div>
+            <button class="btn btn-success" type="submit">Add Soft Serve</button>
+
+    </div>
+
     
-    <label for="in_stock">In Stock:</label>
-    <input type="checkbox" name="in_stock" value="1" checked>
     
-    <button type="submit">Add Soft Serve</button>
 </form>
 </div>
 <div class="menu">

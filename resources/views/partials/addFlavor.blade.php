@@ -3,13 +3,22 @@
         <h5>Add New Flavor To The Inventory Database</h5>
 <form action="/add/flavor" method="post">
     @csrf
-    <label for="flavor">Flavor:</label>
-    <input type="text" name="flavor">
+    <div class="formInputs">
+        <div>
+            <label for="flavor">Flavor:</label>
+            <input type="text" name="flavor">
+        </div>
+        <div>
+            <label for="in_stock">In Stock:</label>
+            <input type="checkbox" name="in_stock" value="1" checked>
+        </div>
+     <button type="submit" class="btn btn-success">Add Flavor</button>
+
+    </div>
+
     
-    <label for="in_stock">In Stock:</label>
-    <input type="checkbox" name="in_stock" value="1" checked>
+
     
-    <button type="submit">Add Flavor</button>
 </form>
 </div>
 <div class="menu">

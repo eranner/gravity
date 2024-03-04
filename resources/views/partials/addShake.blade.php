@@ -3,13 +3,21 @@
         <h5>Add New Shake To The Inventory Database</h5>
 <form action="/add/shake" method="post">
     @csrf
-    <label for="shake">Shake:</label>
-    <input type="text" name="shake">
+    <div class="formInputs">
+        <div>
+            <label for="shake">Shake:</label>
+            <input type="text" name="shake">
+        </div>
+        <div>
+            <label for="in_stock">In Stock:</label>
+            <input type="checkbox" name="in_stock" value="1" checked>
+        </div>
+        <button type="submit" class="btn btn-success">Add Shake</button>
+
+    </div>
+
     
-    <label for="in_stock">In Stock:</label>
-    <input type="checkbox" name="in_stock" value="1" checked>
     
-    <button type="submit">Add Shake</button>
 </form>
 </div>
 <div class="menu">

@@ -3,13 +3,22 @@
         <h5>Add New Topping To The Inventory Database</h5>
 <form action="/add/topping" method="post">
     @csrf
-    <label for="topping">Topping:</label>
-    <input type="text" name="topping">
+    <div class="formInputs">
+        <div>
+            <label for="topping">Topping:</label>
+            <input type="text" name="topping">
+        </div>
+        <div>
+            <label for="in_stock">In Stock:</label>
+            <input type="checkbox" name="in_stock" value="1" checked>
+        </div>
+        <button class="btn btn-success" type="submit">Add Topping</button>
+
+    </div>
+
     
-    <label for="in_stock">In Stock:</label>
-    <input type="checkbox" name="in_stock" value="1" checked>
+
     
-    <button class="btn btn-success" type="submit">Add Topping</button>
 </form>
 </div>
 <div class="menu">
