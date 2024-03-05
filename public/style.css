@@ -45,7 +45,7 @@ body, html {
     flex-wrap: wrap;
     gap: 5px;
     justify-content: center;
-    
+
 }
 
 .out-of-stock {
@@ -110,7 +110,7 @@ body, html {
     text-shadow: 1px 1px white;
     display:flex;
     flex-direction: column;
-    
+
 }
 
 .categoryLabel {
@@ -145,5 +145,11 @@ body, html {
 }
 
 .readable {
+    font-family: readable;
+}
+
+.hardIceCreamOrderForm {
+    display:flex;
+    gap: 30px;
     font-family: readable;
 }

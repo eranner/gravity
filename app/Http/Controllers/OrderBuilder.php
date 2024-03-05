@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Flavor;
+use App\Models\Topping;
 
 use Illuminate\Http\Request;
 
@@ -9,6 +10,7 @@ class OrderBuilder extends Controller
 {
     public function loadBuilder() {
         $flavors = Flavor::orderBy('flavor', 'asc')->get();
-        return view('mobileOrder', ['flavors' => $flavors]);
+        $toppings = Topping::orderBy('topping', 'asc')->get();
+        return view('mobileOrder', ['flavors' => $flavors, 'toppings' =>$toppings]);
     }
 }
