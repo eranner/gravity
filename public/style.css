@@ -1,5 +1,25 @@
+@font-face {
+    font-family: cones;
+    src: url('./fonts/ColdSnowflake-One.otf');
+}
+
+@font-face {
+    font-family: coneHead;
+    src: url('./fonts/ColdSnowflake-Three.otf');
+}
+
+@font-face {
+    font-family: readable;
+    src: url('./fonts/IceCreamGrande.otf');
+}
+
+@font-face {
+    font-family: gravity;
+    src: url('./fonts/MagicDreams.otf');
+}
 body, html {
-    height: 100%;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .maincontainer {
@@ -38,8 +58,18 @@ body, html {
 
 .frontFacingMenu {
     display: grid;
-    grid-template-rows: .5fr 1.5fr 1fr;
+    grid-template-rows: 1.5fr .5fr;
     grid-template-columns: 2fr 1fr 1fr;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.408);
+    background-image: url('./photos/spring.png');
+    background-size: cover;
+    background-position: center;
+
+}
+
+.specials {
+    grid-column: span 2;
 }
 
 .menu {
@@ -53,6 +83,7 @@ body, html {
     max-width: 350px;
     border: 2px solid black;
     padding: 5px;
+    background: white;
 
 }
 .addFlavorContainer {
@@ -68,4 +99,51 @@ body, html {
     flex-direction: column;
     align-items: center;
     gap: 5px;
+}
+
+.iceGrid {
+    padding: 20px;
+    font-family: readable;
+    font-size: 1.5rem;
+    color: rgb(227, 212, 240);
+    color: #333;
+    text-shadow: 1px 1px white;
+    display:flex;
+    flex-direction: column;
+    
+}
+
+.categoryLabel {
+    font-family: gravity;
+    font-size: 3rem;
+    color: rgb(70, 0, 128);
+    text-shadow: 2px 1px white;
+    font-weight: 300;
+    }
+
+.hardIceFlavors {
+    column-count: 2;
+}
+
+.specialsItems {
+    column-count: 2;
+}
+
+.welcomesign {
+    font-family: gravity;
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px rgb(70, 0, 128);
+}
+
+.login-header {
+    margin-top: 30px;
+    padding: 20px;
+    margin-bottom: 30px;
+    font-family: gravity;
+}
+
+.readable {
+    font-family: readable;
 }

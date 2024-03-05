@@ -8,6 +8,7 @@ use App\Http\Controllers\ToppingController;
 use App\Http\Controllers\ShakeController;
 use App\Http\Controllers\SpecialsController;
 use App\Http\Controllers\SoftServeController;
+use App\Http\Controllers\OrderBuilder;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,3 +50,5 @@ Route::put('/refreshStock/softServe/{id}', [SoftServeController::class, 'refresh
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::put('/updateStock/{id}', [FlavorController::class, 'updateStock'])->middleware('auth')->name('updateStock');
 Route::put('/refreshStock/{id}', [FlavorController::class, 'refreshStock'])->middleware('auth')->name('refresh');
+
+Route::get('/mobileorders', [OrderBuilder::class, 'loadBuilder'])->name('mobileorders');

@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="{{route('main')}}">Home</a>
-          <a class="nav-link" href="#">Mobile Orders</a>
+          <a class="nav-link" href="{{route('mobileorders')}}">Mobile Orders</a>
           <a class="nav-link" href="#">About Us</a>
           <a class="nav-link" href="{{ auth()->check() ? route('dashboard') : route('login')}}">
             {{auth()->check() ?  'Dashboard' :  'Login'}}
