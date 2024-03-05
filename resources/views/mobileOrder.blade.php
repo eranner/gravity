@@ -105,12 +105,16 @@
     <div class="finalOrder">
         <label class="form-label">Review Order</label>
         <textarea type="text" v-model="orderForm" class="form-control" rows=12></textarea>
-        <label class="form-label">Order Total:</label>
 
     </div>
-    <input type="text" v-model="price">
+    <div class="orderTotal">
+        <label class="form-label">Order Total:</label>
 
-    <button @click="clearOrder" class="btn btn-danger">Start Over</button>
+        <input type="text" v-model="price" class="form-control" style="max-width: 100px;">
+
+        <button @click="clearOrder" class="btn btn-danger" style="max-width:100px;">Start Over</button>
+    </div>
+
 </div>
 @include('partials.footer')
 

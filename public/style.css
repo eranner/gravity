@@ -156,4 +156,18 @@ body, html {
 
 .finalOrder {
     font-family: readable;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.orderTotal {
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: readable;
+    align-items: center;
+    margin-bottom: 50px;
 }
