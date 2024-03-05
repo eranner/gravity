@@ -55,7 +55,7 @@
     </div>
 </div>
 <div style="display:flex; justify-content: center;">
-    <button class="btn" style="background: rgb(181, 114, 181); font-size: 3rem; font-family: gravity; color: white; text-shadow: 1px 1px #333; min-width: 300px; max-width: 600px;">Order Now</button>
+    <a href="{{route('mobileorders')}}"><button class="btn" style="background: rgb(181, 114, 181); font-size: 3rem; font-family: gravity; color: white; text-shadow: 1px 1px #333; min-width: 300px; max-width: 600px;">Order Now</button></a>
 
 </div>
 

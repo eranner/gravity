@@ -153,3 +153,7 @@ body, html {
     gap: 30px;
     font-family: readable;
 }
+
+.finalOrder {
+    font-family: readable;
+}

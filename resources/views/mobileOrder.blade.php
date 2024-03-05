@@ -69,12 +69,42 @@
         </select>
         <button @click="buildToppingOrder" class='btn mb-3' style='background:rgb(181, 114, 181);'>Add</button>
     </div>
+    <div class="hardIceCreamOrderForm">
+        <h3>Shakes:</h3>
 
+        <label class="form-label mb-3">Size</label>
+        <select v-model="shake.size" class="form-select mb-3" style="max-width: 100px;">
+            @foreach ($sizes as $size)
+                <option  value="{{ $size }}">{{ $size }}</option>
+            @endforeach
+        </select>
+        <label class="form-label mb-3">Shake</label>
+        <select v-model="shake.flavor" class="form-select mb-3" style="max-width: 300px;">
+            @foreach ($shakes as $shake)
+            @if($shake->in_stock)
+                <option  value="{{ $shake->shake }}">{{ $shake->shake }}</option>
+            @endif
+            @endforeach
+        </select>
+        <button @click="buildShakeOrder" class='btn mb-3' style='background:rgb(181, 114, 181);'>Add</button>
+    </div>
+    <div class="hardIceCreamOrderForm">
+        <h3>Specials:</h3>
 
+        <label class="form-label mb-3">Special</label>
+        <select v-model="special.name" class="form-select mb-3" style="max-width: 300px;">
+            @foreach ($specials as $special)
+            @if($special->in_stock)
+                <option  value="{{ $special->special }}">{{ $special->special }}</option>
+            @endif
+            @endforeach
+        </select>
+        <button @click="buildSpecialOrder" class='btn mb-3' style='background:rgb(181, 114, 181);'>Add</button>
+    </div>
 
     <div class="finalOrder">
         <label class="form-label">Review Order</label>
-        <input type="text" v-model="orderForm" class="form-control">
+        <textarea type="text" v-model="orderForm" class="form-control" rows=12></textarea>
         <label class="form-label">Order Total:</label>
 
     </div>
@@ -111,14 +141,55 @@
                     softServeFlavor: '',
                     softServeCost: 0,
                     softServeConeCup: 'cup'
+                },
+                shake: {
+                    flavor: '',
+                    size: '',
+                    cost: '',
+                },
+                special: {
+                    cost: 6.99,
+                    name: ''
                 }
             };
         },
         methods: {
             buildToppingOrder() {
                 this.price += this.topping.toppingPrice
-                this.orderForm += ` ${this.topping.toppingName} `;
+                this.orderForm += `     - Add ${this.topping.toppingName}\n`;
                 this.price = parseFloat(this.price.toFixed(2));
+                this.topping.toppingName = ''
+            },
+            buildSpecialOrder() {
+                this.price += this.special.cost
+                this.orderForm += `1 ${this.special.name}\n`
+                this.price = parseFloat(this.price.toFixed(2));
+                this.special.name = ''
+            },
+            buildShakeOrder() {
+                let cost = 0;
+                if(this.shake.size == ''){
+                    alert('Please choose a size')
+                    return ''
+                }
+                if(this.shake.flavor == ''){
+                    alert('Please choose a shake')
+                    return ''
+                }
+                if(this.shake.size === "S"){
+                    cost = 2.49
+                    this.shake.cost =  parseFloat(cost.toFixed(2))
+                } else if (this.shake.size === "M") {
+                    cost = 3.99
+                    this.shake.cost =  parseFloat(cost.toFixed(2))
+                } else {
+                    cost = 4.49
+                    this.shake.cost =  parseFloat(cost.toFixed(2))
+                }
+                this.price +=   parseFloat(cost)
+                this.orderForm += ` ${this.shake.size} ${this.shake.flavor} Shake\n`
+                this.shake.flavor = ''
+                this.shake.size = ''
             },
             buildSoftServeOrder(){
                 let cost = 0;
@@ -143,7 +214,7 @@
                     this.softServe.softServeCost =  parseFloat(cost.toFixed(2))
                 }
                 this.price +=   parseFloat(this.softServe.softServeCost)
-                this.orderForm += `${this.softServe.softServeSize} ${this.softServe.softServeFlavor} Soft Serve in a ${this.softServe.softServeConeCup}`
+                this.orderForm += `${this.softServe.softServeSize} ${this.softServe.softServeFlavor} Soft Serve in a ${this.softServe.softServeConeCup}\n`
                 this.softServe.softServeFlavor = ''
                 this.softServe.softServeSize = ''
             },
@@ -167,7 +238,7 @@
                 this.scoopCount += 1
 
                 this.price += parseFloat((this.scoops * this.scoopPrice).toFixed(2));
-                this.orderForm += `${this.scoops} ${this.scoop} ${this.selectedFlavor} in a ${this.coneCup}`
+                this.orderForm += `${this.scoops} ${this.scoop} ${this.selectedFlavor} in a ${this.coneCup} \n`
                 this.scoops = 0
                 this.selectedFlavor = ''
             },
