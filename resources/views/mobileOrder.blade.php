@@ -108,19 +108,19 @@
 
     </div>
     <div class="orderTotal">
-        <form action="{{route('orderConfirmation')}}">
+        {{-- <form action="{{route('orderConfirmation')}}"> --}}
             @csrf
         <label class="form-label" style="font-size: 2.5rem; border-bottom: 3px solid black;">Order Total:</label>
         <div style="display:flex; justify-content: center;">
             <p style="font-size: 3rem; color: green;">$</p>
-            <input type="text" disabled=true v-model="price" class="form-control" style="max-width: 250px; font-size:3rem; text-align:center; background: transparent; border:none; color: green;">
+            <input type="text" disabled=true v-model="finalTotal" class="form-control" style="max-width: 250px; font-size:3rem; text-align:center; background: transparent; border:none; color: green;">
         </div>
 
         <div class="submissionButtonsContainer">
             <button @click="clearOrder" class="btn btn-danger" style="max-width:300px; text-shadow: 1px 1px #333;">Start Over</button>
             <button @click="clearOrder" class="btn btn-success" style="max-width:300px; text-shadow: 1px 1px #333;">Place Order</button>
         </div>
-    </form>
+    {{-- </form> --}}
     </div>
 
 </div>
@@ -131,6 +131,7 @@
         data() {
             return {
                 selectedFlavor: '',
+                finalTotal: '',
                 scoops: 0,
                 coneCup: 'cup',
                 orderForm : '',
@@ -170,12 +171,15 @@
                 this.price += this.topping.toppingPrice
                 this.orderForm += `     - Add ${this.topping.toppingName} $${this.topping.toppingPrice.toFixed(2)}\n`;
                 this.price = parseFloat(this.price.toFixed(2));
+                this.finalTotal = this.price.toFixed(2)
                 this.topping.toppingName = ''
             },
             buildSpecialOrder() {
                 this.price += this.special.cost
                 this.orderForm += `1 ${this.special.name} - $${this.special.cost.toFixed(2)}\n`
                 this.price = parseFloat(this.price.toFixed(2));
+                this.finalTotal = this.price.toFixed(2)
+
                 this.special.name = ''
             },
             buildShakeOrder() {
@@ -199,6 +203,7 @@
                     this.shake.cost =  parseFloat(cost.toFixed(2))
                 }
                 this.price +=   parseFloat(cost)
+                this.finalTotal = this.price.toFixed(2)
                 this.orderForm += `${this.shake.size} ${this.shake.flavor} Shake - $${this.shake.cost}\n`
                 this.shake.flavor = ''
                 this.shake.size = ''
@@ -226,6 +231,8 @@
                     this.softServe.softServeCost =  parseFloat(cost.toFixed(2))
                 }
                 this.price +=   parseFloat(this.softServe.softServeCost)
+                this.finalTotal = this.price.toFixed(2)
+
                 this.orderForm += `${this.softServe.softServeSize} ${this.softServe.softServeFlavor} Soft Serve in a ${this.softServe.softServeConeCup} - $${this.softServe.softServeCost}\n`
                 this.softServe.softServeFlavor = ''
                 this.softServe.softServeSize = ''
@@ -252,6 +259,8 @@
                 cost = this.scoops * this.scoopPrice
                 // this.price += cost.toFixed(2)
                 this.price += parseFloat(cost.toFixed(2));
+                this.finalTotal = this.price.toFixed(2)
+
                 this.orderForm += `${this.scoops} ${this.scoop} ${this.selectedFlavor} in a ${this.coneCup} - $${cost.toFixed(2)}\n`
                 this.scoops = 0
                 this.selectedFlavor = ''
