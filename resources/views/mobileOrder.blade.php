@@ -6,7 +6,7 @@
 <div id="app" class="container">
     <h2 class="categoryLabel">Build Your Order</h2>
     <div class="hardIceCreamOrderForm">
-        <h3>Hard Ice Cream:</h3>
+        <h5>Hard Ice Cream:</h5>
         <label class="form-label mb-3">Scoops</label>
         <select v-model="scoops" class="form-select mb-3" style="max-width: 100px;">
             @for ($i = 0; $i <10; $i++)
@@ -32,7 +32,7 @@
         <button @click="buildScoopOrder" class='btn mb-3' style='background:rgb(181, 114, 181);'>Add</button>
     </div>
     <div class="hardIceCreamOrderForm">
-        <h3>Soft Serve:</h3>
+        <h5>Soft Serve:</h5>
 
         <label class="form-label mb-3">Size</label>
         <select v-model="softServe.softServeSize" class="form-select mb-3" style="max-width: 100px;">
@@ -59,7 +59,7 @@
         <button @click="buildSoftServeOrder" class='btn mb-3' style='background:rgb(181, 114, 181);'>Add</button>
     </div>
     <div class="hardIceCreamOrderForm">
-        <h3>Toppings:</h3>
+        <h5>Toppings:</h5>
 
         <label class="form-label mb-3">Add Toppings</label>
         <select v-model="topping.toppingName" class="form-select mb-3" style="max-width: 300px;">
@@ -70,7 +70,7 @@
         <button @click="buildToppingOrder" class='btn mb-3' style='background:rgb(181, 114, 181);'>Add</button>
     </div>
     <div class="hardIceCreamOrderForm">
-        <h3>Shakes:</h3>
+        <h5>Shakes:</h5>
 
         <label class="form-label mb-3">Size</label>
         <select v-model="shake.size" class="form-select mb-3" style="max-width: 100px;">
@@ -89,7 +89,7 @@
         <button @click="buildShakeOrder" class='btn mb-3' style='background:rgb(181, 114, 181);'>Add</button>
     </div>
     <div class="hardIceCreamOrderForm">
-        <h3>Specials:</h3>
+        <h5>Specials:</h5>
 
         <label class="form-label mb-3">Special</label>
         <select v-model="special.name" class="form-select mb-3" style="max-width: 300px;">
@@ -108,9 +108,12 @@
 
     </div>
     <div class="orderTotal">
-        <label class="form-label">Order Total:</label>
+        <label class="form-label" style="font-size: 2.5rem;">Order Total:</label>
+        <div style="display:flex; justify-content: center;">
+            <p style="font-size: 3rem; color: green;">$</p>
+            <input type="text" v-model="price" class="form-control" style="max-width: 250px; font-size:3rem; text-align:center; background: transparent; border:none; color: green;">
+        </div>
 
-        <input type="text" v-model="price" class="form-control" style="max-width: 100px;">
 
         <button @click="clearOrder" class="btn btn-danger" style="max-width:100px;">Start Over</button>
     </div>
@@ -160,13 +163,13 @@
         methods: {
             buildToppingOrder() {
                 this.price += this.topping.toppingPrice
-                this.orderForm += `     - Add ${this.topping.toppingName}\n`;
+                this.orderForm += `     - Add ${this.topping.toppingName} $${this.topping.toppingPrice.toFixed(2)}\n`;
                 this.price = parseFloat(this.price.toFixed(2));
                 this.topping.toppingName = ''
             },
             buildSpecialOrder() {
                 this.price += this.special.cost
-                this.orderForm += `1 ${this.special.name}\n`
+                this.orderForm += `1 ${this.special.name} - $${this.special.cost.toFixed(2)}\n`
                 this.price = parseFloat(this.price.toFixed(2));
                 this.special.name = ''
             },
@@ -191,7 +194,7 @@
                     this.shake.cost =  parseFloat(cost.toFixed(2))
                 }
                 this.price +=   parseFloat(cost)
-                this.orderForm += ` ${this.shake.size} ${this.shake.flavor} Shake\n`
+                this.orderForm += `${this.shake.size} ${this.shake.flavor} Shake - $${this.shake.cost}\n`
                 this.shake.flavor = ''
                 this.shake.size = ''
             },
@@ -218,12 +221,13 @@
                     this.softServe.softServeCost =  parseFloat(cost.toFixed(2))
                 }
                 this.price +=   parseFloat(this.softServe.softServeCost)
-                this.orderForm += `${this.softServe.softServeSize} ${this.softServe.softServeFlavor} Soft Serve in a ${this.softServe.softServeConeCup}\n`
+                this.orderForm += `${this.softServe.softServeSize} ${this.softServe.softServeFlavor} Soft Serve in a ${this.softServe.softServeConeCup} - $${this.softServe.softServeCost}\n`
                 this.softServe.softServeFlavor = ''
                 this.softServe.softServeSize = ''
             },
 
             buildScoopOrder(){
+                let cost = 0;
                 if(this.scoops > 1){
                     this.scoop = 'scoops'
                 } else {
@@ -240,9 +244,10 @@
                     return ''
                 }
                 this.scoopCount += 1
-
-                this.price += parseFloat((this.scoops * this.scoopPrice).toFixed(2));
-                this.orderForm += `${this.scoops} ${this.scoop} ${this.selectedFlavor} in a ${this.coneCup} \n`
+                cost = this.scoops * this.scoopPrice
+                // this.price += cost.toFixed(2)
+                this.price += parseFloat(cost.toFixed(2));
+                this.orderForm += `${this.scoops} ${this.scoop} ${this.selectedFlavor} in a ${this.coneCup} - $${cost.toFixed(2)}\n`
                 this.scoops = 0
                 this.selectedFlavor = ''
             },
