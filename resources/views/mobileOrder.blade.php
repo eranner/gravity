@@ -4,7 +4,7 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 <div id="app" class="container">
-    <h2 class="categoryLabel">Build Your Order</h2>
+    <h2 class="categoryLabel" style="text-align: center; margin-top: 30px;">Build Your Order</h2>
     <div class="hardIceCreamOrderForm">
         <h5>Hard Ice Cream:</h5>
         <label class="form-label mb-3">Scoops</label>
@@ -104,18 +104,23 @@
 
     <div class="finalOrder">
         <label class="form-label">Review Order</label>
-        <textarea type="text" v-model="orderForm" class="form-control" rows=12></textarea>
+        <textarea type="text" v-model="orderForm" disabled=true class="form-control" rows=12></textarea>
 
     </div>
     <div class="orderTotal">
-        <label class="form-label" style="font-size: 2.5rem;">Order Total:</label>
+        <form action="{{route('orderConfirmation')}}">
+            @csrf
+        <label class="form-label" style="font-size: 2.5rem; border-bottom: 3px solid black;">Order Total:</label>
         <div style="display:flex; justify-content: center;">
             <p style="font-size: 3rem; color: green;">$</p>
-            <input type="text" v-model="price" class="form-control" style="max-width: 250px; font-size:3rem; text-align:center; background: transparent; border:none; color: green;">
+            <input type="text" disabled=true v-model="price" class="form-control" style="max-width: 250px; font-size:3rem; text-align:center; background: transparent; border:none; color: green;">
         </div>
 
-
-        <button @click="clearOrder" class="btn btn-danger" style="max-width:100px;">Start Over</button>
+        <div class="submissionButtonsContainer">
+            <button @click="clearOrder" class="btn btn-danger" style="max-width:300px; text-shadow: 1px 1px #333;">Start Over</button>
+            <button @click="clearOrder" class="btn btn-success" style="max-width:300px; text-shadow: 1px 1px #333;">Place Order</button>
+        </div>
+    </form>
     </div>
 
 </div>

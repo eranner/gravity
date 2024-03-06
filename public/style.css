@@ -171,3 +171,9 @@ body, html {
     align-items: center;
     margin-bottom: 50px;
 }
+
+.submissionButtonsContainer {
+    display:flex;
+    justify-content: center;
+    gap: 30px;
+}
