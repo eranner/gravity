@@ -48,6 +48,7 @@ Route::post('/add/softServe', [SoftServeController::class, 'store'])->middleware
 Route::put('/updateStock/softServe/{id}', [SoftServeController::class, 'updateStock'])->middleware('auth')->name('updateSoftServe');
 Route::put('/refreshStock/softServe/{id}', [SoftServeController::class, 'refreshStock'])->middleware('auth')->name('refreshSoftServe');
 
+Route::put('/complete/{id}', [OrderFillerController::class, 'complete'])->middleware('auth')->name('completeOrder');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::put('/updateStock/{id}', [FlavorController::class, 'updateStock'])->middleware('auth')->name('updateStock');
