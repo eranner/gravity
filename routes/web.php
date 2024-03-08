@@ -64,3 +64,6 @@ Route::get('successfulPayment', [OrderConfirmationController::class, 'successful
 
 
 Route::get('/orderDashboard', [OrderFillerController::class, 'index'])->name('orderFiller')->middleware('auth');
+
+
+Route::get('/backFromStripe', [OrderConfirmationController::class, 'backToOrder']);

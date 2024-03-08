@@ -66,4 +66,8 @@ class OrderConfirmationController extends Controller
     public function successfulPayment() {
         return view('success');
     }
+
+    public function backToOrder(){
+        return redirect()->route('mobileorders');
+    }
 }
