@@ -196,3 +196,19 @@ body, html {
 
 }
 
+.thank-you-message {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+.thank-you-message > h2 {
+    font-family: gravity;
+    margin-bottom: 50px;
+}
+
+.thank-you-message>p{
+    font-family: readable;
+}

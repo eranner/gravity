@@ -3,8 +3,8 @@
 <div style="display:flex; flex-direction:column; align-items: center; margin-top: 50px;">
 <form class="finalOrderPage" action="{{route('stripePayment')}}" method="post" id="orderForm">
     @csrf
-<input type="hidden" value="{!!$orderDetails!!}" name="finalOrderDetails">
-<input type="hidden" value="{{floatVal($orderTotal)}}" name="finalOrderTotal">
+<input type="hidden" value="{!!$orderDetails!!} + 6% PA sales tax" name="finalOrderDetails">
+<input type="hidden" value="{{number_format(floatVal($orderTotal) + floatVal($orderTotal * 0.06), 2)}}" name="finalOrderTotal">
 
 
     <div >
