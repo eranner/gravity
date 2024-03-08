@@ -9,7 +9,9 @@ class OrderFillerController extends Controller
 {
     public function index(){
         $orders = Mobileorder::orderBy('created_at', 'asc')->get();
-        return view('orderFiller', ['orders'=> $orders]);
+        $empty = Mobileorder::where('complete', false)->get();
+
+        return view('orderFiller', ['orders'=> $orders, 'empty'=>$empty]);
     }
 
     public function complete($id) {

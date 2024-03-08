@@ -1,7 +1,9 @@
 @include('partials.header')
 @include('partials.navbar')
 <div class="container" style="margin-top: 50px;">
-
+@if($empty->isEmpty())
+<h2 style="font-family: gravity; text-align:center;">There are no current orders.</h2>
+@else
 <table class="table">
 <tr>
     <th>Customer Name</th>
@@ -26,6 +28,8 @@
 @endif
 @endforeach
 </table>
+
+@endif
 </div>
 @include('partials.footer')
 </form>
