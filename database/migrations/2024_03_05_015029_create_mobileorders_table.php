@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('order');
             $table->float('price');
             $table->boolean('complete');
+            $table->string('customer_name');
             $table->timestamps();
         });
     }

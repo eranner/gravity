@@ -57,3 +57,5 @@ Route::get('/mobileorders', [OrderBuilder::class, 'loadBuilder'])->name('mobileo
 Route::post('/orderConfirmation', [OrderConfirmationController::class, 'loadConfirmation'])->name('orderConfirmation');
 
 Route::post('/placeOrder', [OrderConfirmationController::class, 'addOrder'])->name('placeOrder');
+Route::post('/stripePayment', [OrderConfirmationController::class, 'runStripe'])->name('stripePayment');
+Route::get('successfulPayment', [OrderConfirmationController::class, 'successfulPayment'])->name('successfulPayment');

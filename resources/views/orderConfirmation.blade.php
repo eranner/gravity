@@ -1,7 +1,7 @@
 @include('partials.header')
 @include('partials.navbar')
 <div style="display:flex; flex-direction:column; align-items: center; margin-top: 50px;">
-<form class="finalOrderPage" action="{{route('placeOrder')}}" method="post">
+<form class="finalOrderPage" action="{{route('stripePayment')}}" method="post" id="orderForm">
     @csrf
 <input type="hidden" value="{!!$orderDetails!!}" name="finalOrderDetails">
 <input type="hidden" value="{{floatVal($orderTotal)}}" name="finalOrderTotal">
@@ -16,9 +16,34 @@
                 <p>Total: ${{number_format(floatVal($orderTotal) + floatVal($orderTotal * 0.06), 2)}}</p>
             </div>
     </div>
-    <button class="btn btn-success" style='max-width: 150px; margin: auto;'>Place Order</button>
+    <label for="customerName" class="form-label mb-3">Customer Name</label>
+    <input type="text" name="customerName" class='form-control mb-3'>
+    <button class="btn btn-success" style='max-width: 150px; margin: auto;' id="orderButton">Place Order</button>
 
 </div>
 </form>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let orderButton = document.getElementById('orderButton')
+        orderButton.addEventListener('click',()=> {
+            fetch("{{route('placeOrder')}}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams(new FormData(document.getElementById("orderForm"))),
+            })
+            .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error("Error placing order");
+                    }
+                    return response.json();
+                })
+                .then(function (orderResponse) {
+                    console.log("Order placed successfully:", orderResponse);
+                })
+        })
+    })
+</script>
 </div>
 @include('partials.footer')

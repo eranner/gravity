@@ -12,7 +12,8 @@ class Mobileorder extends Model
     protected $fillable = [
         'order',
         'price',
-        'complete'
+        'complete',
+        'customer_name'
     ];
 
     protected static function boot()
