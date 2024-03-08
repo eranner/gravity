@@ -101,26 +101,28 @@
         </select>
         <button @click="buildSpecialOrder" class='btn mb-3' style='background:rgb(181, 114, 181);'>Add</button>
     </div>
+    <form action="{{route('orderConfirmation')}}" method="post">
 
     <div class="finalOrder">
         <label class="form-label">Review Order</label>
         <textarea type="text" v-model="orderForm" disabled=true class="form-control" rows=12></textarea>
+        <input type="hidden" name="orderDetails" v-model="orderForm">
 
     </div>
     <div class="orderTotal">
-        {{-- <form action="{{route('orderConfirmation')}}"> --}}
             @csrf
         <label class="form-label" style="font-size: 2.5rem; border-bottom: 3px solid black;">Order Total:</label>
         <div style="display:flex; justify-content: center;">
             <p style="font-size: 3rem; color: green;">$</p>
             <input type="text" disabled=true v-model="finalTotal" class="form-control" style="max-width: 250px; font-size:3rem; text-align:center; background: transparent; border:none; color: green;">
+            <input type="hidden" name="orderTotal" v-model="finalTotal">
         </div>
 
         <div class="submissionButtonsContainer">
-            <button @click="clearOrder" class="btn btn-danger" style="max-width:300px; text-shadow: 1px 1px #333;">Start Over</button>
-            <button @click="clearOrder" class="btn btn-success" style="max-width:300px; text-shadow: 1px 1px #333;">Place Order</button>
+            <button @click="clearOrder" class="btn btn-danger" type='button' style="max-width:300px; text-shadow: 1px 1px #333;">Start Over</button>
+            <button type="submit" class="btn btn-success" style="max-width:300px; text-shadow: 1px 1px #333;">Place Order</button>
         </div>
-    {{-- </form> --}}
+    </form>
     </div>
 
 </div>
@@ -144,10 +146,6 @@
                     toppingName: '',
                     toppingPrice: .50,
                     toppingTotal : 0
-                },
-                special: {
-                    specialCount:0,
-                    specialChoice: ''
                 },
                 softServe: {
                     softServeSize: '',
@@ -268,6 +266,7 @@
             clearOrder() {
                 this.orderForm = ''
                 this.price = 0
+                this.finalTotal = ''
             },
         }
     });

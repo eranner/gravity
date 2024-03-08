@@ -9,7 +9,7 @@ use App\Http\Controllers\ShakeController;
 use App\Http\Controllers\SpecialsController;
 use App\Http\Controllers\SoftServeController;
 use App\Http\Controllers\OrderBuilder;
-use App\Http\Controllers\OrderConfirmation;
+use App\Http\Controllers\OrderConfirmationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,4 +54,6 @@ Route::put('/refreshStock/{id}', [FlavorController::class, 'refreshStock'])->mid
 
 Route::get('/mobileorders', [OrderBuilder::class, 'loadBuilder'])->name('mobileorders');
 
-Route::post('/orderConfirmation', [OrderConfirmation::class, 'loadConfirmation'])->name('orderConfirmation');
+Route::post('/orderConfirmation', [OrderConfirmationController::class, 'loadConfirmation'])->name('orderConfirmation');
+
+Route::post('/placeOrder', [OrderConfirmationController::class, 'addOrder'])->name('placeOrder');

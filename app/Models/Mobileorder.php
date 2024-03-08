@@ -14,4 +14,13 @@ class Mobileorder extends Model
         'price',
         'complete'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->complete = $model->complete ?? 0;
+        });
+    }
 }
