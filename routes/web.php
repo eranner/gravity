@@ -10,6 +10,7 @@ use App\Http\Controllers\SpecialsController;
 use App\Http\Controllers\SoftServeController;
 use App\Http\Controllers\OrderBuilder;
 use App\Http\Controllers\OrderConfirmationController;
+use App\Http\Controllers\OrderFillerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,3 +60,6 @@ Route::post('/orderConfirmation', [OrderConfirmationController::class, 'loadConf
 Route::post('/placeOrder', [OrderConfirmationController::class, 'addOrder'])->name('placeOrder');
 Route::post('/stripePayment', [OrderConfirmationController::class, 'runStripe'])->name('stripePayment');
 Route::get('successfulPayment', [OrderConfirmationController::class, 'successfulPayment'])->name('successfulPayment');
+
+
+Route::get('/orderDashboard', [OrderFillerController::class, 'index'])->name('orderFiller')->middleware('auth');

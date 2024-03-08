@@ -12,6 +12,9 @@
           <a class="nav-link" href="{{ auth()->check() ? route('dashboard') : route('login')}}">
             {{auth()->check() ?  'Dashboard' :  'Login'}}
         </a>
+        <a class="nav-link" href="{{ auth()->check() ? route('orderFiller') : route('login')}}">
+            {{auth()->check() ?  'Orders' :  ''}}
+        </a>
         @if(auth()->check())
         <a class="nav-link" href="{{route('logout')}}">Logout</a>
         </div>
