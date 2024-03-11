@@ -64,6 +64,9 @@ class OrderConfirmationController extends Controller
     }
 
     public function successfulPayment() {
+        $update = Mobileorder::latest()->first();
+        $update->complete = false;
+        $update->save();
         return view('success');
     }
 

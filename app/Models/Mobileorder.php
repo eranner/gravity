@@ -21,7 +21,7 @@ class Mobileorder extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            $model->complete = $model->complete ?? 0;
+            $model->complete = $model->complete ?? 1;
         });
     }
 }
