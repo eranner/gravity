@@ -8,9 +8,9 @@
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="{{route('main')}}">Home</a>
           <a class="nav-link" href="{{route('mobileorders')}}">Mobile Orders</a>
-          <a class="nav-link" href="#">About Us</a>
+          {{-- <a class="nav-link" href="#">About Us</a> --}}
           <a class="nav-link" href="{{ auth()->check() ? route('dashboard') : route('login')}}">
-            {{auth()->check() ?  'Dashboard' :  'Login'}}
+            {{auth()->check() ?  'Inventory' :  'Login'}}
         </a>
         <a class="nav-link" href="{{ auth()->check() ? route('orderFiller') : route('login')}}">
             {{auth()->check() ?  'Orders' :  ''}}

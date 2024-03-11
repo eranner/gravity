@@ -17,7 +17,7 @@
             </div>
     </div>
     <label for="customerName" class="form-label mb-3">Customer Name</label>
-    <input type="text" name="customerName" class='form-control mb-3'>
+    <input type="text" name="customerName" class='form-control mb-3' required>
     <button class="btn btn-success" style='max-width: 150px; margin: auto;' id="orderButton">Place Order</button>
 
 </div>

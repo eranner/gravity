@@ -5,32 +5,34 @@
 
 <div id="app" class="container">
     <h2 class="categoryLabel" style="text-align: center; margin-top: 30px;">Build Your Order</h2>
-    <div class="hardIceCreamOrderForm">
-        <h5>Hard Ice Cream:</h5>
-        <label class="form-label mb-3">Scoops</label>
-        <select v-model="scoops" class="form-select mb-3" style="max-width: 100px;">
-            @for ($i = 0; $i <10; $i++)
-            <option value={{$i + 1}}>{{$i + 1}}</option>
-            @endfor
-        </select>
-        <label class="form-label mb-3">Flavor</label>
-        <select v-model="selectedFlavor" class="form-select mb-3" style="max-width: 300px;">
-            @foreach ($flavors as $flavor)
-                @if($flavor->in_stock)
-                    <option  value="{{ $flavor->flavor }}">{{ $flavor->flavor }}</option>
-                @endif
-            @endforeach
-        </select>
-        <label class="form-label mb-3">Cup/Cone?</label>
-
-        <select v-model="coneCup" class="form-select mb-3" style="max-width: 100px;">
-
-            <option value="cup">cup</option>
-            <option value="cone">cone</option>
-
-        </select>
-        <button @click="buildScoopOrder" class='btn mb-3' style='background:rgb(181, 114, 181);'>Add</button>
-    </div>
+    <div class="orderWrapper">
+        <div class="hardIceCreamOrderForm">
+            <h5>Hard Ice Cream:</h5>
+            <label class="form-label mb-3">Scoops</label>
+            <select v-model="scoops" class="form-select mb-3" style="max-width: 100px;">
+                @for ($i = 0; $i <10; $i++)
+                <option value={{$i + 1}}>{{$i + 1}}</option>
+                @endfor
+            </select>
+            <label class="form-label mb-3">Flavor</label>
+            <select v-model="selectedFlavor" class="form-select mb-3" style="max-width: 300px;">
+                @foreach ($flavors as $flavor)
+                    @if($flavor->in_stock)
+                        <option  value="{{ $flavor->flavor }}">{{ $flavor->flavor }}</option>
+                    @endif
+                @endforeach
+            </select>
+            <label class="form-label mb-3">Cup/Cone?</label>
+    
+            <select v-model="coneCup" class="form-select mb-3" style="max-width: 100px;">
+    
+                <option value="cup">cup</option>
+                <option value="cone">cone</option>
+    
+            </select>
+            <button @click="buildScoopOrder" class='btn mb-3' style='background:rgb(181, 114, 181);'>Add</button>
+        </div>
+    
     <div class="hardIceCreamOrderForm">
         <h5>Soft Serve:</h5>
 
@@ -124,6 +126,7 @@
         </div>
     </form>
     </div>
+</div>
 
 </div>
 @include('partials.footer')
@@ -166,6 +169,10 @@
         },
         methods: {
             buildToppingOrder() {
+                if(this.topping.toppingName == ''){
+                    alert("Please choose a topping")
+                    return ''
+                }
                 this.price += this.topping.toppingPrice
                 this.orderForm += `     - Add ${this.topping.toppingName} $${this.topping.toppingPrice.toFixed(2)}\n`;
                 this.price = parseFloat(this.price.toFixed(2));
@@ -173,6 +180,10 @@
                 this.topping.toppingName = ''
             },
             buildSpecialOrder() {
+                if(this.special.name == ''){
+                    alert("Please choose a special")
+                    return ''
+                }
                 this.price += this.special.cost
                 this.orderForm += `1 ${this.special.name} - $${this.special.cost.toFixed(2)}\n`
                 this.price = parseFloat(this.price.toFixed(2));

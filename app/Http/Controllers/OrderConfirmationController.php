@@ -8,6 +8,11 @@ use App\Models\Mobileorder;
 class OrderConfirmationController extends Controller
 {
     public function loadConfirmation(Request $request) {
+        $credentials = $request->validate([
+            'orderTotal' => 'required',
+            'orderDetails' => 'required',
+
+        ]);
         $orderPrice = $request->input('orderTotal');
         $orderDetails = nl2br($request->input('orderDetails'));
         return view('orderConfirmation', ['orderTotal' => $orderPrice, 'orderDetails'=>$orderDetails]);
@@ -53,7 +58,7 @@ class OrderConfirmationController extends Controller
                 ],
                 'mode' => 'payment',
                 'success_url' => route('successfulPayment'),
-                'cancel_url' => route('orderConfirmation'),
+                'cancel_url' => route('mobileorders'),
             ]);
 
             return redirect()->away($session->url);

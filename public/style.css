@@ -105,8 +105,8 @@ body, html {
     padding: 20px;
     font-family: readable;
     font-size: 1.5rem;
-    color: rgb(227, 212, 240);
-    color: #333;
+    color: rgb(158, 5, 158);
+    /* color: #333; */
     text-shadow: 1px 1px white;
     display:flex;
     flex-direction: column;
@@ -142,6 +142,10 @@ body, html {
     padding: 20px;
     margin-bottom: 30px;
     font-family: gravity;
+    color: rgb(70, 0, 128);
+    text-shadow: 2px 2px white;
+    font-size: 3rem;
+    text-align: center;
 }
 
 .readable {
@@ -211,4 +215,45 @@ body, html {
 
 .thank-you-message>p{
     font-family: readable;
+}
+
+@media screen and (max-width: 1000px) {
+    .frontFacingMenu {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
+
+
+}
+@media screen and (max-width: 1000px) {
+    .hardIceCreamOrderForm {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hardIceCreamOrderForm > button {
+        max-width: 300px;
+        min-width: 300px;
+    }
+
+    .hardIceCreamOrderForm > h5 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+.welcomesign {
+    font-size: 4rem;
+}
+
+.flavorName {
+    font-size: 1.2rem;
+}
+
 }

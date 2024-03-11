@@ -9,7 +9,7 @@
             <div class="hardIceFlavors">
                 @foreach($flavors as $key=>$flavor)
                 @if ($flavor->in_stock)
-                <div class="flavorName" style="{{$key%2 != 0 ? 'color:white;text-shadow:1px 1px #333;' : '' }}">{{$flavor->flavor}}</div>
+                <div class="flavorName" style="{{$key%2 != 0 ? 'color: rgb(70, 0, 128);text-shadow:1px 1px white;' : '' }}">{{$flavor->flavor}}</div>
                 @endif
                 @endforeach
             </div>
@@ -19,7 +19,7 @@
             <h6 class="categoryLabel">Toppings</h6>
             @foreach ($toppings as $key=>$topping)
             @if ($topping->in_stock)
-            <div class="flavorName" style="{{$key%2 != 0 ? 'color:white;text-shadow:1px 1px #333;' : '' }}">{{$topping->topping}}</div>
+            <div class="flavorName"  style="{{$key%2 != 0 ? 'color: rgb(70, 0, 128);text-shadow:1px 1px white;' : '' }}">{{$topping->topping}}</div>
             @endif
             @endforeach
         </div>
@@ -27,7 +27,7 @@
             <h6 class="categoryLabel">Soft Serve</h6>
             @foreach ($softServes as $key => $softServe)
             @if ($softServe->in_stock)
-            <div class="flavorName" style="{{$key%2 != 0 ? 'color:white;text-shadow:1px 1px #333;' : '' }}">{{$softServe->flavor}}</div>
+            <div class="flavorName"  style="{{$key%2 != 0 ? 'color: rgb(70, 0, 128);text-shadow:1px 1px white;' : '' }}">{{$softServe->flavor}}</div>
             @endif
             @endforeach
         </div>
@@ -36,7 +36,7 @@
             <div class="hardIceFlavors">
             @foreach ($shakes as $key=>$shake)
             @if ($shake->in_stock)
-            <div class="flavorName" style="{{$key%2 != 0 ? 'color:white;text-shadow:1px 1px #333;' : '' }}">{{$shake->shake}}</div>
+            <div class="flavorName"  style="{{$key%2 != 0 ? 'color: rgb(70, 0, 128);text-shadow:1px 1px white;' : '' }}">{{$shake->shake}}</div>
             @endif
             @endforeach
             </div>
@@ -46,7 +46,7 @@
             <div class="specialsItems">
                 @foreach ($specials as $key => $special)
                 @if ($special->in_stock)
-                <div class="flavorName" style="{{$key%2 != 0 ? 'color:white;text-shadow:1px 1px #333;' : '' }}">{{$special->special}}</div>
+                <div class="flavorName"  style="{{$key%2 != 0 ? 'color: rgb(70, 0, 128);text-shadow:1px 1px white;' : '' }}">{{$special->special}}</div>
                 @endif
                 @endforeach
             </div>
