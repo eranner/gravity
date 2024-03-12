@@ -7,7 +7,7 @@
     @include('partials.addTopping')
     @include('partials.addShake')
     @include('partials.addSpecial')
-    @include('partials.addSoftServe')
+    @include('partials.addSoftserve')
     </div>
 </div>
 @include ('partials.footer')
