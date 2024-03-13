@@ -116,7 +116,7 @@
         <label class="form-label" style="font-size: 2.5rem; border-bottom: 3px solid black;">Order Total:</label>
         <div style="display:flex; justify-content: center;">
             <p style="font-size: 3rem; color: green;">$</p>
-            <input type="text" disabled=true v-model="finalTotal" class="form-control" style="max-width: 250px; font-size:3rem; text-align:center; background: transparent; border:none; color: green;">
+            <input type="text" disabled=true v-model="finalTotal" class="form-control" style="max-width: 250px; font-size:3rem; text-align:center; background: transparent; border:none; color: green; text-shadow:2px 2px #333;">
             <input type="hidden" name="orderTotal" v-model="finalTotal">
         </div>
 
