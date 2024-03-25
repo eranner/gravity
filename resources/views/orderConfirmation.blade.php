@@ -23,28 +23,31 @@
 </div>
 </form>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        let orderButton = document.getElementById('orderButton')
-        orderButton.addEventListener('click',()=> {
-            fetch("{{route('placeOrder')}}", {
+document.addEventListener('DOMContentLoaded', () => {
+    let orderButton = document.getElementById('orderButton')
+    orderButton.addEventListener('click', async () => {
+        try {
+            const response = await fetch("{{route('placeOrder')}}", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
                 mode: 'cors',
                 body: new URLSearchParams(new FormData(document.getElementById("orderForm"))),
-            })
-            .then(function (response) {
-                    if (!response.ok) {
-                        throw new Error("Error placing order");
-                    }
-                    return response.json();
-                })
-                .then(function (orderResponse) {
-                    console.log("Order placed successfully:", orderResponse);
-                })
-        })
-    })
+            });
+
+            if (!response.ok) {
+                throw new Error("Error placing order");
+            }
+
+            const orderResponse = await response.json();
+            console.log("Order placed successfully:", orderResponse);
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    });
+});
+
 </script>
 </div>
 @include('partials.footer')
