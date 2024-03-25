@@ -29,7 +29,9 @@
             fetch("{{route('placeOrder')}}", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRF-TOKEN": csrfToken
+
                 },
                 body: new URLSearchParams(new FormData(document.getElementById("orderForm"))),
             })
