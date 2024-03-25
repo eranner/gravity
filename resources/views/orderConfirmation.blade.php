@@ -31,6 +31,7 @@
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
+                mode: 'cors',
                 body: new URLSearchParams(new FormData(document.getElementById("orderForm"))),
             })
             .then(function (response) {
