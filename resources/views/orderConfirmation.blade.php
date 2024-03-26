@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let orderButton = document.getElementById('orderButton')
     orderButton.addEventListener('click', async () => {
         try {
-            const response = await fetch("/placeOrder", {
+            const response = await fetch("https://icecreamshop.site/placeOrder", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
