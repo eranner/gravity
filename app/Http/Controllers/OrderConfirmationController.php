@@ -43,6 +43,7 @@ class OrderConfirmationController extends Controller
         $unitAmountCents = (int) round($cost * 100);
 
         try {
+            $this->addOrder($request);
             $session = \Stripe\Checkout\Session::create([
                 'line_items' => [
                     [

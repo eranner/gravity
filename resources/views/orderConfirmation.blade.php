@@ -22,7 +22,7 @@
 
 </div>
 </form>
-<script>
+{{-- <script>
 document.addEventListener('DOMContentLoaded', () => {
     let orderButton = document.getElementById('orderButton')
     orderButton.addEventListener('click', async () => {
@@ -48,6 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-</script>
+</script> --}}
 </div>
 @include('partials.footer')
