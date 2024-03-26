@@ -25,7 +25,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     let orderButton = document.getElementById('orderButton')
-    orderButtons.addEventListener('click', async () => {
+    orderButton.addEventListener('click', async () => {
         try {
             const response = await fetch("{{route('placeOrder')}}/", {
                 method: "POST",
