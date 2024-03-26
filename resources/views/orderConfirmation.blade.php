@@ -23,7 +23,7 @@
 </div>
 </form>
 <script>
-
+document.addEventListener('DOMContentLoaded', () => {
     let orderButton = document.getElementById('orderButton')
     orderButtons.addEventListener('click', async () => {
         try {
@@ -46,7 +46,7 @@
             console.error("Error:", error);
         }
     });
-
+});
 
 </script>
 </div>
