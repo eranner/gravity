@@ -24,10 +24,10 @@
 </form>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    let orderButtons = document.getElementById('orderButton')
-    orderButtons.addEventListener('click', async () => {
+    let orderButton = document.getElementById('orderButton')
+    orderButton.addEventListener('click', async () => {
         try {
-            const response = await fetch("{{route('placeOrder')}}", {
+            const response = await fetch("{{route('placeOrder')}}/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
