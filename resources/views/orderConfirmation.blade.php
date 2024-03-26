@@ -24,8 +24,8 @@
 </form>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    let orderButton = document.getElementById('orderButton')
-    orderButton.addEventListener('click', async () => {
+    let orderButtons = document.getElementById('orderButton')
+    orderButtons.addEventListener('click', async () => {
         try {
             const response = await fetch("{{route('placeOrder')}}", {
                 method: "POST",
